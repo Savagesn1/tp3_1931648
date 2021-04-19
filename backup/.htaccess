@@ -1,0 +1,7 @@
+AuthType Basic
+
+AuthName "restricted area"
+
+AuthUserFile C:\Bitnami\wampstack-7.4.14-0\apache2\htdocs\tp3_1931648-main\.htpasswd
+
+require valid-user
