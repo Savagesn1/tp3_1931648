@@ -1,0 +1,41 @@
+header {
+    text-align: center;
+    padding: 25px;
+    background-color: #222;
+    color: #eee;
+    margin-bottom: 50px;
+    margin: 0;
+}
+
+body {
+    margin: 0px;
+}
+
+.centrer {
+    padding-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.centrer-texte {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+footer {
+    text-align: center;
+    background-color: #222;
+    padding: 25px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #eee;
+    margin-top: 60px;
+}
