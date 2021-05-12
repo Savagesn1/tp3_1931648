@@ -13,6 +13,16 @@
 <body>
     <?php
     include "en-tete.php";
+    if (!empty($_SESSION['utilisateur'])) {
+
+        echo ("<pre>");
+        print_r($_SESSION['utilisateur']);
+        echo ("</pre>");
+        echo ("</br>");
+        echo ("Si vous voyez cette page, c'est que vous êtes authentifiés. (⌐■_■)");
+    } else {
+        echo ("Accès refusé, vous n'êtes pas authentifés.");
+    }
     try {
         include "connexion.php";
         $sth = $dbh->prepare("SELECT `id_biere`, `nom`, `type`, `taux`, `image` from `bieres`;");

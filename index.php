@@ -22,17 +22,14 @@
         foreach ($biere as $bieres) {
     ?>
             <section class="centrer centrer-texte">
-                <div>
-                    <a href="administration/effacer-biere-traitement.php?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
-                    <a href="administration/modifier-biere.php?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
-                </div>
-
 
                 <div class="content">
-                    <h4 class="detail"><?= $bieres['nom'] ?></h4>
+                    <h4>
+                        <a href="detail-biere.php?id_biere=<?= $bieres['id_biere'] ?>" title=""><?= $bieres['nom'] ?></a>
+                    </h4>
                     <span>Brasserie: <?= $bieres['nom_brasserie'] ?></span>
                     <p>Type: <?= $bieres['type'] ?></p>
-                    <p>Taux: <?= $bieres['taux'] ?>%</p>
+
                     <img class="image" src="image/<?= $bieres['image'] ?>">
                 </div>
             </section>

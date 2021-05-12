@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int NOT NULL COMMENT 'Clé primaire de la table utilisateur',
   `courriel` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Adresse courriel de l''utilisateur',
+  `nom_utilisateur` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nom de l''utilisateur',
+  `prenom_utilisateur` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'prenom de l''utilisateur',
   `mot_passe` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mot de passe de l''utilisateur',
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Date de la création du compte',
   `date_suppression` datetime DEFAULT NULL COMMENT 'Date de la suppression du compte'
@@ -28,7 +30,7 @@ CREATE TABLE `bieres` (
 
 INSERT INTO `bieres` (`id_biere`, `nom`, `nom_brasserie`, `type`, `taux`, `image`) VALUES
 ('1', 'MONARK', 'Boréale', 'Imperial', '7', 'bouteill_monark.jpg'),
-('2', 'NOKTURN', 'Boréale', NULL, '6', 'bouteille_nokturn.jpg'),
+('2', 'NOKTURN', 'Boréale', 'IPA', '6', 'bouteille_nokturn.jpg'),
 ('3', 'SCOTCH ALE DU NORD', 'Boréale', 'Scotch Ale', '7','bouteillescotchale.jpg'),
-('4', 'BORÉALE IPA', 'Boréale', NULL, '6', 'bouteilleipa.jpg'),
+('4', 'BORÉALE', 'Boréale', 'IPA', '6', 'bouteilleipa.jpg'),
 ('5', 'BORÉALE CUIVRÉE', 'Boréale', 'Pale Ale Belge', '6', 'bouteillecuivree.png')

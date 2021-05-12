@@ -17,7 +17,7 @@ session_start();
 
     // Si l'utilisateur est authentifié, redirigez celui-ci vers la page sécurisée.
     if (!empty($_SESSION['utilisateur'])) {
-        header('Location: page-securisee.php');
+        header('Location: gere-bieres.php');
     }
 
     include "en-tete.php";
@@ -44,7 +44,7 @@ session_start();
         ));
 
         // Pour ajouter un contexte, la date de suppression doit être vide.
-        $sth = $dbh->prepare("SELECT `id_utilisateur`, `courriel`, `mot_passe`, `date_creation`
+        $sth = $dbh->prepare("SELECT `id_utilisateur`, `courriel`,`nom_utilisateur`,`prenom_utilisateur`, `mot_passe`, `date_creation`
                                 FROM `utilisateur` 
                                WHERE `courriel` = :courriel 
                                  AND `date_suppression` IS NULL;");
@@ -66,6 +66,8 @@ session_start();
                     $_SESSION['utilisateur'] = array(
                         'id_utilisateur' => $utilisateurTrouve['id_utilisateur'],
                         'courriel' => $utilisateurTrouve['courriel'],
+                        'nom_utilisateur' => $utilisateurTrouve['nom_utilisateur'],
+                        'prenom_utilisateur' => $utilisateurTrouve['prenom_utilisateur'],
                         'mot_passe' => $utilisateurTrouve['mot_passe'],
                         'date_creation' => $utilisateurTrouve['date_creation']
                     );

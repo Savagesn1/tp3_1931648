@@ -13,6 +13,7 @@
     <?php
     include "en-tete.php";
     ?>
+
     <section class="creer-compte">
         <h2>Création d'un compte</h2>
 
@@ -34,7 +35,7 @@
                 <label for="mot_passe">Mot de passe :</label>
                 <input type="password" name="mot_passe" id="mot_passe" />
             </div>
-            <input type="submit" value="Créer le compte">
+            <input class="botton" type="submit" value="Créer le compte">
 
         </form>
     </section>
