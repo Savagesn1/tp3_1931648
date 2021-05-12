@@ -27,8 +27,8 @@ CREATE TABLE `bieres` (
 
 
 INSERT INTO `bieres` (`id_biere`, `nom`, `nom_brasserie`, `type`, `taux`, `image`) VALUES
-('1', 'MONARK', 'Boréale', 'Imperial', `7`, 'bouteille_monark.jpg'),
-(2, "NOKTURN", "Boréale", NULL, 6, "bouteille_nokturn.jpg"),
-(3, "SCOTCH ALE DU NORD", "Boréale", 'Scotch Ale', `7.5`, 'bouteillescotchale.jpg'),
-('4', 'BORÉALE IPA', 'Boréale', NULL, `6.2`, 'bouteilleipa.jpg'),
-('5', 'BORÉALE CUIVRÉE', 'Boréale', 'Pale Ale Belge'; `6.9`, 'bouteillecuivree.png'),
+('1', 'MONARK', 'Boréale', 'Imperial', '7', 'bouteill_monark.jpg'),
+('2', 'NOKTURN', 'Boréale', NULL, '6', 'bouteille_nokturn.jpg'),
+('3', 'SCOTCH ALE DU NORD', 'Boréale', 'Scotch Ale', '7','bouteillescotchale.jpg'),
+('4', 'BORÉALE IPA', 'Boréale', NULL, '6', 'bouteilleipa.jpg'),
+('5', 'BORÉALE CUIVRÉE', 'Boréale', 'Pale Ale Belge', '6', 'bouteillecuivree.png')

@@ -25,19 +25,20 @@ session_start();
 
     include "en-tete.php";
     ?>
-
-    <h2>Authentification</h2>
-    <form action="authentification-traitement.php" method="post">
-        <div>
-            <label for="courriel">Courriel :</label>
-            <input type="text" name="courriel" id="courriel" />
-        </div>
-        <div>
-            <label for="mot_passe">Mot de passe :</label>
-            <input type="password" name="mot_passe" id="mot_passe" />
-        </div>
-        <input type="submit" value="Connexion">
-    </form>
+    <section class="creer-compte">
+        <h2>Authentification</h2>
+        <form action="authentification-traitement.php" method="post">
+            <div>
+                <label for="courriel">Courriel :</label>
+                <input type="text" name="courriel" id="courriel" />
+            </div>
+            <div>
+                <label for="mot_passe">Mot de passe :</label>
+                <input type="password" name="mot_passe" id="mot_passe" />
+            </div>
+            <input class="botton" type="submit" value="Connexion">
+        </form>
+    </section>
 
     <?php
     include "../pied-page.php";
