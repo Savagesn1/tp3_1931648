@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $usager = 'root';
-$motdepasse = 'admin123';
+$motdepasse = 'Brandonsn1';
 $hote = 'localhost';
 $base = 'tp3-1931648';
 

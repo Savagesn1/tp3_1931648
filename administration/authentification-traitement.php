@@ -59,15 +59,10 @@ session_start();
 
                 $utilisateurTrouve = $sth->fetch(PDO::FETCH_ASSOC);
 
-                /*
-                Comparez le mot de passe saisit avec celui dans la base de données.
-            */
+
                 if (password_verify($utilsateur["mot_passe"], $utilisateurTrouve['mot_passe'])) {
 
-                    /* 
-                    Conservez les informations de l'usager dans la variable `utilisateur`. 
-                    Cette variable sera incluse dans la super variable globale `$_SESSION`.
-                */
+
                     $_SESSION['utilisateur'] = array(
                         'id_utilisateur' => $utilisateurTrouve['id_utilisateur'],
                         'courriel' => $utilisateurTrouve['courriel'],

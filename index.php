@@ -1,7 +1,4 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 
 <head>
@@ -9,31 +6,45 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Accueil d'un système d'authentification</title>
+    <title> Bière</title>
 </head>
+
 
 <body>
     <?php
     include "en-tete.php";
+    try {
+        include "connexion.php";
+        $sth = $dbh->prepare("SELECT `id_biere`, `nom`, `nom_brasserie`, `type`, `taux`, `image` from `bieres`;");
+        $sth->execute();
+        $biere = $sth->fetchAll();
+
+        foreach ($biere as $bieres) {
     ?>
+            <section class="centrer centrer-texte">
+                <div>
+                    <a href="administration/effacer-biere-traitement.php?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
+                    <a href="administration/modifier-biere.php?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
+                </div>
 
-    <div class="centrer centrer-texte">
 
-        <?php
-
-        if (!empty($_SESSION['utilisateur'])) {
-            echo ("Vous êtes déjà connectés!");
-        } else {
-            echo ("Si vous n'avez pas de compte, commencez par créer votre compte et authentifiez-vous par la suite.");
-        }
-        ?>
-
-    </div>
+                <div class="content">
+                    <h4 class="detail"><?= $bieres['nom'] ?></h4>
+                    <span>Brasserie: <?= $bieres['nom_brasserie'] ?></span>
+                    <p>Type: <?= $bieres['type'] ?></p>
+                    <p>Taux: <?= $bieres['taux'] ?>%</p>
+                    <img class="image" src="image/<?= $bieres['image'] ?>">
+                </div>
+            </section>
 
     <?php
+        }
+    } catch (\Throwable $e) {
+        echo ("Erreur lors de la récupération.");
+        echo ($e->getMessage());
+    }
     include "pied-page.php";
     ?>
-
 </body>
 
 </html>
