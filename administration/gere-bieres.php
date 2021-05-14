@@ -30,8 +30,8 @@ if (!isset($_SESSION)) {
     ?>
             <section class="centrer centrer-texte">
                 <div class="content">
-                    <a href="effacer-biere-traitement.php?<?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
-                    <a href="modifier-biere.php?<?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
+                    <a href="effacer-biere-traitement.php?id_biere=<?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
+                    <a href="modifier-biere.php?id_biere=<?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
                 </div>
 
 
@@ -46,7 +46,7 @@ if (!isset($_SESSION)) {
         echo ("Erreur lors de la récupération.");
         echo ($e->getMessage());
     }
-    include "pied-page.php";
+    include "../pied-page.php";
     ?>
 </body>
 

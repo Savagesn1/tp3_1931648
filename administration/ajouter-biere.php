@@ -4,8 +4,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-
-
 <!doctype html>
 <html lang="fr">
 
@@ -13,7 +11,7 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Ajouter une Biere</title>
 </head>
 
@@ -31,7 +29,7 @@ if (!isset($_SESSION)) {
             </div>
             <div>
                 <label for="nom_brasserie">La brasserie</label>
-                <textarea name="brasserie" id="nom_brasserie"></textarea>
+                <textarea name="nom_brasserie" id="nom_brasserie"></textarea>
             </div>
             <div>
                 <label for="type">type de biere</label>
@@ -46,13 +44,13 @@ if (!isset($_SESSION)) {
                 <input type="file" name="image" />
             </div>
             <input type="submit" value="Ajouter Biere">
-            <a href="../index.php"><input type="cancel" value="Annuler"></a>
+            <a href="gere-bieres.php"><input type="submit" value="Annuler"></a>
         </form>
     </section>
 
     <?php
 
-    include "pied-page.php";
+    include "../pied-page.php";
     ?>
 </body>
 

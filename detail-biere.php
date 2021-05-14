@@ -4,9 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-
 <?php
-
 $idBiere = $_GET['id_biere'];
 
 include "connexion.php";

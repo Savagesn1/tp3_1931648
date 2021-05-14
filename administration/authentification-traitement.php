@@ -74,7 +74,8 @@ if (!isset($_SESSION)) {
                     );
 
                     // Redirigez l'utilisateur authentifé vers la page sécurisée.
-                    header('Location: gere-bieres.php');
+                    echo ("<script>window.location = 'gere-bieres.php'</script>");
+                    exit;
                 } else {
                     echo ("Connexion impossible avec ces informations.");
                 }
@@ -84,8 +85,7 @@ if (!isset($_SESSION)) {
             ?>
         </div>
     <?php
-        echo ("<script>window.location = 'gerer-bieres.php'</script>");
-        exit;
+
     } catch (\Throwable $e) {
         echo ("Erreur lors de l'authentification.");
         echo ($e->getMessage());

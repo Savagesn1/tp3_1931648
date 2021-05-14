@@ -4,7 +4,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,19 +24,21 @@ if (!isset($_SESSION)) {
     include "../connexion.php";
 
     try {
-        $sth = $dbh->prepare("DELETE FROM `bieres` WHERE `id_biere` = :id;");
-        $sth->bindParam(':id', $idbiere, PDO::PARAM_INT);
+        $sth = $dbh->prepare("DELETE FROM `bieres` WHERE `id_biere` = :id_biere;");
+        $sth->bindParam(':id_biere', $idBiere, PDO::PARAM_INT);
     ?>
         <div>
             <?php
             if ($sth->execute()) {
-                echo ("Succès lors de la suppression de la biere.");
+                echo ("<script>window.location = 'gere-bieres.php'</script>");
+                exit;
             } else {
                 echo ("Erreur lors de la suppression de la biere.");
             }
             ?>
         </div>
     <?php
+
     } catch (\Throwable $e) {
         echo ("Erreur lors de la suppression de la biere.");
     }

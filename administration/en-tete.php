@@ -4,8 +4,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-
-
 <header>
     <h1>Les Bieres Canadiennes</h1>
 
@@ -16,8 +14,9 @@ if (!isset($_SESSION)) {
 
             if (!empty($_SESSION['utilisateur'])) {
             ?>
-                <a href="gere-bieres.php"> Gérer </a>|
-                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['prenom_utilisateur'], ENT_QUOTES, 'UTF-8') ?></span> |
+
+                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['prenom_utilisateur'], ENT_QUOTES, 'UTF-8') ?></span> |<a href="gere-bieres.php"> Gérer </a>|
+                <a href="ajouter-biere.php"> Ajout </a>|
                 <a href="deconexion.php">Se deconnecter</a>
             <?php
             } else {
