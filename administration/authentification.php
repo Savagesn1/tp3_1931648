@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,7 +23,6 @@ session_start();
         celui-ci vers la page sécurisée.
     */
     if (!empty($_SESSION['utilisateur'])) {
-        header('Location: gere-bieres.php');
     }
 
     include "en-tete.php";

@@ -1,3 +1,10 @@
+<?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,7 +22,7 @@
 
     $idBiere = $_GET['id_biere'];
 
-    include "connexion.php";
+    include "../connexion.php";
 
     try {
         $sth = $dbh->prepare("DELETE FROM `bieres` WHERE `id_biere` = :id;");
@@ -35,7 +42,7 @@
         echo ("Erreur lors de la suppression de la biere.");
     }
 
-    include "pied-page.php";
+    include "../pied-page.php";
     ?>
 </body>
 

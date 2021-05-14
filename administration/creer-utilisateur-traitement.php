@@ -1,3 +1,10 @@
+<?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -15,8 +22,8 @@
     $utilsateur = filter_var_array($_POST, array(
         'courriel' => FILTER_SANITIZE_EMAIL,
         'mot_passe' => FILTER_SANITIZE_STRING,
-        'nom_utilisateur' => FILTER_SANITIZE_STRING,
-        'prenom_utilisateur' => FILTER_SANITIZE_STRING
+        'nom' => FILTER_SANITIZE_STRING,
+        'prenom' => FILTER_SANITIZE_STRING
     ));
 
 
@@ -33,22 +40,24 @@
             include "../connexion.php";
             $motPasseSecurise = password_hash($utilsateur['mot_passe'], PASSWORD_BCRYPT);
 
-            $sth = $dbh->prepare("INSERT INTO `utilisateur`(`id_utilisateur`,`courriel`,`nom_utilisateur`,`prenom_utilisateur` `mot_passe`) VALUES (:id_utilisateur,:courriel, :nom_utilisateur, :prenom_utilisateur, :mot_passe);");
+            $sth = $dbh->prepare("INSERT INTO `utilisateur`(`courriel`,`nom_utilisateur`,`prenom_utilisateur`, `mot_passe`) VALUES (:courriel, :nom_utilisateur, :prenom_utilisateur, :mot_passe);");
 
-            $sth->bindParam(':id_utilisateur', $utilsateur['id_utilisateur'], PDO::PARAM_STR);
+
             $sth->bindParam(':courriel', $utilsateur['courriel'], PDO::PARAM_STR);
-            $sth->bindParam(':nom_utilisateur', $utilsateur['nom_utilisateur'], PDO::PARAM_INT);
-            $sth->bindParam(':prenom_utilisateur', $utilsateur['prenom_utilisateur'], PDO::PARAM_INT);
+            $sth->bindParam(':nom_utilisateur', $utilsateur['nom'], PDO::PARAM_STR);
+            $sth->bindParam(':prenom_utilisateur', $utilsateur['prenom'], PDO::PARAM_STR);
             $sth->bindParam(':mot_passe', $motPasseSecurise, PDO::PARAM_STR);
         ?>
 
-
+            <section class="centrer centrer-texte"></section>
             <?php
+
             if ($sth->execute()) {
                 echo ("Succès lors de la création du compte.");
             } else {
                 echo ("Erreur lors de la création du compte.");
             }
+
             ?>
 
     <?php

@@ -1,4 +1,11 @@
 <?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 
 $idBiere = $_GET['id_biere'];
 

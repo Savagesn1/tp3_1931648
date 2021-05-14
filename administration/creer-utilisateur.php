@@ -1,3 +1,10 @@
+<?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

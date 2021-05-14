@@ -1,3 +1,10 @@
+<?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -23,7 +30,7 @@
 
         try {
 
-            include "connexion.php";
+            include "../connexion.php";
 
             $sth = $dbh->prepare("INSERT INTO `bieres`(`nom`, `nom_brasserie`, `type`, `taux`, `image`) VALUES (:nom, :nom_brasserie, :type, :taux, :image);");
 

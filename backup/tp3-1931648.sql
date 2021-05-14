@@ -5,9 +5,9 @@ USE `tp3-1931648`;
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int NOT NULL COMMENT 'Clé primaire de la table utilisateur',
-  `courriel` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Adresse courriel de l''utilisateur',
-  `nom_utilisateur` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nom de l''utilisateur',
-  `prenom_utilisateur` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'prenom de l''utilisateur',
+  `courriel` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Adresse courriel de l''utilisateur',
+  `nom_utilisateur` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nom de l''utilisateur',
+  `prenom_utilisateur` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'prenom de l''utilisateur',
   `mot_passe` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mot de passe de l''utilisateur',
   `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Date de la création du compte',
   `date_suppression` datetime DEFAULT NULL COMMENT 'Date de la suppression du compte'

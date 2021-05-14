@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -17,7 +20,6 @@ session_start();
 
     // Si l'utilisateur est authentifié, redirigez celui-ci vers la page sécurisée.
     if (!empty($_SESSION['utilisateur'])) {
-        header('Location: gere-bieres.php');
     }
 
     include "en-tete.php";
@@ -46,8 +48,7 @@ session_start();
         // Pour ajouter un contexte, la date de suppression doit être vide.
         $sth = $dbh->prepare("SELECT `id_utilisateur`, `courriel`,`nom_utilisateur`,`prenom_utilisateur`, `mot_passe`, `date_creation`
                                 FROM `utilisateur` 
-                               WHERE `courriel` = :courriel 
-                                 AND `date_suppression` IS NULL;");
+                               WHERE `courriel` = :courriel;");
 
         $sth->bindParam(':courriel', $utilsateur['courriel'], PDO::PARAM_STR);
     ?>
@@ -55,7 +56,7 @@ session_start();
         <div class="centrer centrer-texte">
             <?php
             if ($sth->execute()) {
-                echo ("Succès lors de la récupération du compte.");
+
 
                 $utilisateurTrouve = $sth->fetch(PDO::FETCH_ASSOC);
 
@@ -83,6 +84,8 @@ session_start();
             ?>
         </div>
     <?php
+        echo ("<script>window.location = 'gerer-bieres.php'</script>");
+        exit;
     } catch (\Throwable $e) {
         echo ("Erreur lors de l'authentification.");
         echo ($e->getMessage());

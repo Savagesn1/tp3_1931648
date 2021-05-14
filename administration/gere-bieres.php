@@ -1,3 +1,10 @@
+<?php
+// Condition pour éviter le problème
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <title> Bière</title>
 </head>
 
@@ -13,36 +20,24 @@
 <body>
     <?php
     include "en-tete.php";
-    if (!empty($_SESSION['utilisateur'])) {
-
-        echo ("<pre>");
-        print_r($_SESSION['utilisateur']);
-        echo ("</pre>");
-        echo ("</br>");
-        echo ("Si vous voyez cette page, c'est que vous êtes authentifiés. (⌐■_■)");
-    } else {
-        echo ("Accès refusé, vous n'êtes pas authentifés.");
-    }
     try {
-        include "connexion.php";
-        $sth = $dbh->prepare("SELECT `id_biere`, `nom`, `type`, `taux`, `image` from `bieres`;");
+        include "../connexion.php";
+        $sth = $dbh->prepare("SELECT `id_biere`, `nom`, `image` from `bieres`;");
         $sth->execute();
         $biere = $sth->fetchAll();
 
         foreach ($biere as $biere) {
     ?>
-            <div>
-                <a href="administration/effacer-biere-traitement.php?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
-                <a href="administration/modifier-biere.php?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
-            </div>
-            <section>
+            <section class="centrer centrer-texte">
+                <div class="content">
+                    <a href="effacer-biere-traitement.php?<?= $biere['id_biere'] ?>" title="">Supprimer la biere</a> |
+                    <a href="modifier-biere.php?<?= $biere['id_biere'] ?>" title="">Modifier la biere</a> |
+                </div>
+
 
                 <div class="content">
                     <h4 class="detail"><?= $biere['nom'] ?></h4>
-                    <span>Brasserie: <?= $biere['nom_brasserie'] ?></span>
-                    <p>Type: <?= $biere['type'] ?></p>
-                    <p>Taux: <?= $biere['taux'] ?>%</p>
-                    <img class="image" src="image/<?= $biere['image'] ?>">
+                    <img class="image" src="../image/<?= $biere['image'] ?>">
                 </div>
             </section>
     <?php
