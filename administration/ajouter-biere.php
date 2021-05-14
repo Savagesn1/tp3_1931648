@@ -20,31 +20,31 @@ if (!isset($_SESSION)) {
     include "en-tete.php";
     ?>
 
-    <section>
+    <section class="creer-compte">
         <h2>Ajouter une biere</h2>
         <form action="ajouter-biere-traitement.php" method="post" enctype="multipart/form-data">
-            <div>
+            <div class="content">
                 <label for="nom">Nom</label>
                 <input type="text" name="nom" id="nom" />
             </div>
-            <div>
+            <div class="content">
                 <label for="nom_brasserie">La brasserie</label>
                 <textarea name="nom_brasserie" id="nom_brasserie"></textarea>
             </div>
-            <div>
+            <div class="content">
                 <label for="type">type de biere</label>
                 <textarea name="type" id="type"></textarea>
             </div>
-            <div>
+            <div class="content">
                 <label for="taux">Taux d'Alcool</label>
                 <input type="text" name="taux" id="taux" />
             </div>
-            <div>
+            <div class="content">
                 <label for="image">Choisir une image :</label>
                 <input type="file" name="image" />
             </div>
             <input type="submit" value="Ajouter Biere">
-            <a href="gere-bieres.php"><input type="submit" value="Annuler"></a>
+            <a href="gere-bieres.php"><input type="reset" value="Annuler" onclick="history.back()"></a>
         </form>
     </section>
 

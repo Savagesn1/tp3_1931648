@@ -42,6 +42,7 @@ $biere = $sth->fetch();
             <p>Taux: <?= $biere['taux'] ?>%</p>
             <img class="image" src="image/<?= $biere['image'] ?>">
         </div>
+        <input type="reset" value="retour" onclick="history.back()">
     </section>
     <?php
     include "pied-page.php";

@@ -15,7 +15,9 @@ if (!isset($_SESSION)) {
             if (!empty($_SESSION['utilisateur'])) {
             ?>
 
-                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['prenom_utilisateur'], ENT_QUOTES, 'UTF-8') ?></span> |<a href="gere-bieres.php"> Gérer </a>|
+                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['prenom_utilisateur'], ENT_QUOTES, 'UTF-8') ?></span> |
+                <a href="../index.php"> Accueil </a>|
+                <a href="gere-bieres.php"> Gérer </a>|
                 <a href="ajouter-biere.php"> Ajout </a>|
                 <a href="deconexion.php">Se deconnecter</a>
             <?php

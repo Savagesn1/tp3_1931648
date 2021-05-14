@@ -15,7 +15,10 @@ if (!isset($_SESSION)) {
 
             if (!empty($_SESSION['utilisateur'])) {
             ?>
-                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['courriel'], ENT_QUOTES, 'UTF-8') ?></span> |
+                <span>Bienvenue <?= htmlspecialchars($_SESSION['utilisateur']['prenom_utilisateur'], ENT_QUOTES, 'UTF-8') ?></span> |
+                <a href="../index.php"> Accueil </a>|
+                <a href="administration/gere-bieres.php"> Gérer </a>|
+                <a href="administration/ajouter-biere.php"> Ajout </a>|
                 <a href="administration/deconexion.php">Se deconecter</a>
             <?php
             } else {

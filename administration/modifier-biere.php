@@ -19,9 +19,9 @@ if (!isset($_SESSION)) {
     <?php
     include "en-tete.php";
     ?>
-    <section class="content">
+    <section class="creer-compte">
 
-        <div class="content2">
+        <div class="content">
             <h2>Modifier la biere</h2>
             <form action="modifier-biere-traitement.php" method="post" enctype="multipart/form-data">
                 <div>
@@ -45,7 +45,7 @@ if (!isset($_SESSION)) {
                     <input type="file" name="image" id="image" />
                 </div>
                 <input type="submit" value="Modifier la biere">
-                <a href="gere-bieres.php"><input type="submit" value="Annuler"></a>
+                <a href="gere-bieres.php"><input type="reset" value="Annuler" onclick="history.back()"></a>
                 <input type="hidden" name="id_biere" value="<?= $_GET['id_biere'] ?>" />
             </form>
         </div>
